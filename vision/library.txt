@@ -1,0 +1,13 @@
+### **라이브러리 설치**
+
+- **Anaconda 설치 (전체 패키지 포함)**: https://www.anaconda.com/products/distribution
+- **Anaconda 부담되면 Miniconda 설치:** https://docs.conda.io/en/latest/miniconda.html
+- **가상환경 만들기(아래 명령어 차례로 입력)**
+    - conda create -n exam-monitor python=3.9
+        - 파이썬 버젼은 3.9인 exam-monitor라는 이름의 가상환경을 만듦.
+    - conda activate exam-monitor
+        - 가상 환경 실행
+    - pip install ultralytics opencv-python mediapipe numpy
+        - 프로그램 실행에 필요한 라이브러리 설치
+    - python [vision.py](http://vision.py/)
+        - vision.py(가제) 프로그램 실행
