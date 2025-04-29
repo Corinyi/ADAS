@@ -1,26 +1,29 @@
-from picamera2 import Picamera2
 import cv2
 import time
 from ultralytics import YOLO
 from collections import defaultdict
 
-# ✅ Picamera2 초기화
-picam2 = Picamera2()
-picam2.configure(picam2.create_preview_configuration(main={"format": "RGB888", "size": (640, 480)}))
-picam2.start()
-
-# ✅ 모델 로드
+# 모델 로드
 model = YOLO("yolov8n-pose.pt")
 
-# ✅ 사람 ID별 상태 기록
-arm_up_start_time = defaultdict(lambda: None)  # 3초 타이머용
-arm_up_confirmed = defaultdict(lambda: False)  # 트래킹 중인지 여부
+# 사람 ID별 상태 기록
+arm_up_start_time = defaultdict(lambda: None)
+arm_up_confirmed = defaultdict(lambda: False)
+
+# 카메라 오픈
+cap = cv2.VideoCapture(0, cv2.CAP_V4L2)  # 수정 포인트!
+
+if not cap.isOpened():
+    print("❌ 카메라를 열 수 없습니다.")
+    exit()
 
 while True:
-    # ✅ 프레임 읽기 (numpy 배열)
-    frame = picam2.capture_array()
+    ret, frame = cap.read()
+    if not ret:
+        print("❌ 프레임 읽기 실패")
+        break
 
-    # --- 여기부터 네 기존 YOLO 코드 유지 ---
+    # 이후 동일
     results = model(frame, verbose=False)
 
     for r in results:
@@ -70,4 +73,5 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
+cap.release()
 cv2.destroyAllWindows()
