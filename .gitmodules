@@ -1,0 +1,3 @@
+[submodule "vision/ver4/picamera2"]
+	path = vision/ver4/picamera2
+	url = https://github.com/Corinyi/ADAS.git
