@@ -4,11 +4,24 @@
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
-*$py.class
+*.pyc
+*.pyo
+*.pyd
+*.pyd
+*.pyi
+*.pyx
+*.pxd
+*.egg-info/
+*.so
+*.c
+*.cpp
 
 # C extensions
 *.so
+
+**/site-packages/*
+**/dist/*
+**/build/*
 
 # Distribution / packaging
 .Python
@@ -174,3 +187,14 @@ poetry.toml
 pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+
+*.log
+*.DS_Store
+*.swp
+*.swo
+
+*.tmp
+*.bak
+
+.vscode/
+.code-workspace
