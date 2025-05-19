@@ -1,4 +1,4 @@
-# Active Directional Alert System Using Computer Vision and Parabolic Reflection
+# Active Directional Audio System Using Computer Vision and Parabolic Reflection
 
 This project presents an intelligent alert system that detects cheating behavior during exams and delivers focused warnings to specific individuals without disturbing others. Utilizing a parabolic reflector and computer vision, the system provides directional sound alerts controlled by servo motors.
 
