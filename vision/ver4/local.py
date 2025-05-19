@@ -10,7 +10,7 @@ app = Flask(__name__)
 model = YOLO('yolov8n-pose.pt')
 
 # 라즈베리파이 IP 및 포트 설정
-PI_IP = '172.30.1.56'
+PI_IP = '192.168.10.26'
 PI_PORT = 9999
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -20,7 +20,7 @@ arm_up_confirmed = defaultdict(lambda: False)
 tracked_id = None  # 현재 트래킹 대상 인덱스
 
 # 영상 스트림 수신
-cap = cv2.VideoCapture('http://172.30.1.56:5000/video_feed')
+cap = cv2.VideoCapture('http://192.168.10.26:5000/video_feed')
 
 def gen_frames():
     global tracked_id
