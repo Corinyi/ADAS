@@ -1,3 +1,5 @@
+import os
+import subprocess
 from flask import Flask, Response
 from picamera2 import Picamera2
 import socket
@@ -5,6 +7,8 @@ import threading
 import cv2
 import time
 import pigpio
+subprocess.run(["sudo", "pigpiod"], check=True)
+time.sleep(0.5)  # 데몬이 뜨는 시간 약간 기다리기
 
 # ------------ 설정값 ------------
 FRAME_WIDTH = 640
